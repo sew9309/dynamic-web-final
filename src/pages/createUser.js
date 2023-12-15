@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import CreateUserForm from "@/app/components/CreateUserForm";
 
 export default function CreateUser({ createUser, isLoggedIn }) {
@@ -7,6 +7,8 @@ export default function CreateUser({ createUser, isLoggedIn }) {
     useEffect(() => {
         if (isLoggedIn) router.push("/");  
     }, [isLoggedIn]);
+
+    
 
     return (
         <div>

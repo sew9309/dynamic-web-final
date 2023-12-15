@@ -8,13 +8,14 @@ const Header = ({ isLoggedIn, logoutUser }) => {
                 {isLoggedIn && (
                     <>
                     <Link href="/">User Profile</Link>
+                    <Link href="/createPost">Create Post</Link>
                     <a onClick={logoutUser}>Log Out</a>
                     </>
                 )}
                 {!isLoggedIn && (
                     <>
                     <Link href="/login">Login</Link>
-                    <Link href="/create">Create User</Link>
+                    <Link href="/createUser">Create User</Link>
                     </>
                 )}
             </nav>
