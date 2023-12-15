@@ -49,7 +49,7 @@ const createUser = useCallback(async(e) =>{
         //YOU CAN ADD ADDITIONAL INFORMATION HERE (EX: DESCRIPTION, BIO)
     })
     .then(()=> {
-        const userToSet = { ...user, name }
+        const userToSet = { ...user, name };
           //Since the user is true, set logged in
         setIsLoggedIn(true);
         //Provide some information about the user via setState
@@ -76,9 +76,10 @@ const loginUser = useCallback((e) =>{
     const db = getFirestore();
 
     signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
             const user = userCredential.user;
-            // Create User reference in firestore
+            const userDoc = await getDoc(doc(db, "users", user.uid));
+
             const data = addDoc(collection(db, "users"), {
                 name: name,
                 userId: user.uid,
@@ -87,7 +88,7 @@ const loginUser = useCallback((e) =>{
             //Since the user is true, set logged in
             setIsLoggedIn(true);
             //Provide some information about the user via setState
-            setUserInformation(user);
+            setUserInformation(userToSet);
             //Clear errors
             setError(null);
             }})

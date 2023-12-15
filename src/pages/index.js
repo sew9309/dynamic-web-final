@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { getDocs, getFirestore, collection } from "firebase/firestore";
 import UserProfileCard from "@/app/components/UserProfileCard";
 import PostCard from "@/app/components/PostCard";
+import styles from "@/app/components/components.module.css";
 
 export default function Dashboard({ isLoggedIn }) {
     const router = useRouter();
@@ -30,9 +31,12 @@ export default function Dashboard({ isLoggedIn }) {
     return (
         <main>
             <h1>Dashboard</h1>
+            <h2>Your Health Updates</h2>
+            <div className={styles.postsContainer}>
             {allPosts.map((post, i) => (
                 <PostCard post={post} key={i}/>
-            ))}
+                ))}
+            </div>
         </main>
     );
 }

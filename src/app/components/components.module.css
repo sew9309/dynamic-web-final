@@ -26,3 +26,29 @@
     border-radius: 4px;
     padding: 20px;
 }
+
+.UserProfile img {
+    max-width: 30vw;
+}
+
+.PostCard{
+    background-color: lightgrey;
+    justify-items: center;
+    max-width: 30vw;
+    min-width: 30vw;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.PostCard img {
+    max-width: 30vw;
+    max-height: 30vw;
+    justify-self: center;
+}
+
+.postsContainer {
+    display: grid;
+    justify-items: center;
+    grid-gap: 10px 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
